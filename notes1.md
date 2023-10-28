@@ -16,6 +16,26 @@ Pretrained models
 Token Embeddings:
 
 Depending on the size of your domain-specific corpus, you have two main options:
-Fine-tuning All Layers: If you have a large corpus, you can fine-tune all layers of the pre-trained model. This allows the model to adapt to the new domain more thoroughly.
-Feature Extractor: If your domain-specific corpus is relatively small, you can use the pre-trained model as a feature extractor. You feed your domain-specific data to the pre-trained model, and the embeddings from the model are used as features for a downstream task.
+**Fine-tuning All Layers:** If you have a large corpus, you can fine-tune all layers of the pre-trained model. This allows the model to adapt to the new domain more thoroughly.
+**Feature Extractor:** If your domain-specific corpus is relatively small, you can use the pre-trained model as a feature extractor. You feed your domain-specific data to the pre-trained model, and the embeddings from the model are used as features for a downstream task.
+
 ---------
+
+Date 10/28 
+- BART Facebook/hugging face - seq to seq model **Bidirectional and Auto-Regressive Transformers**
+    - uses BERT (bi -enc + decode) and GPT (left to right decoder)
+- **Challenges**
+- Longer and exceeds token limit on most systems
+    - Chunking, longformer, extractive + abstractive
+- Domain independent gives better results than domain specific so far
+- Score of ROGUE vs experts -> extractive preferred by practitioners
+- **IDEAS**
+- Legal dictionary for identifying keywords
+- 
+  - **Paper**
+  - Unsupervised extractive => lex rank, dsdr, pacsum,
+  - supervised extractive => summarunner, BERT-summ
+  - supervised abstractive => BART, longformer
+  - Domain specific methods => MMr, CaseSummariser, Gist
+  - Extractive : LetSum, kmm, casesummariser, mmr
+  - Abstractive: long (divide n conquer approach) and 
