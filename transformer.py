@@ -109,4 +109,36 @@ class TransformerModel(nn.Module):
 num_heads = 8
 num_layers = 4
 
-transformer_model = TransformerModel(vocab_size, embedding_dim
+
+
+# Create the PyTorch Transformer model
+transformer_model = TransformerModel(vocab_size, embedding_dim, hidden_units, num_heads, num_layers)
+
+# Display the model architecture
+print(transformer_model)
+
+# Loss function and optimizer
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(transformer_model.parameters(), lr=0.001)
+
+# Convert data to PyTorch tensors (x and y should be PyTorch tensors)
+x_torch = torch.from_numpy(x)
+y_hot = torch.nn.functional.one_hot(y, vocab_size)
+
+y_torch = torch.from_numpy(y_hot)
+
+# Training loop
+for epoch in range(epochs):
+    # Forward pass
+    output = transformer_model(x_torch)
+    
+    # Compute the loss
+    loss = criterion(output.view(-1, vocab_size), y_torch.view(-1))
+    
+    # Backward pass and optimization
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+    
+    print(f'Epoch {epoch + 1}/{epochs}, Loss: {loss.item()}')
+
