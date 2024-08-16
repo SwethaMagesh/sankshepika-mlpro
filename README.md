@@ -23,6 +23,7 @@ This promotes access to legal information and encourages a fair and just legal s
 
 ---
 ## Results
+- Obtained ROUGE score of 0.45 on an average.
 ![image](https://github.com/SwethaMagesh/sankshepika-mlpro/assets/43994542/d9714f71-3df8-4592-89a6-e18b1230a991)
 
 ---
